@@ -71,3 +71,55 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Microservice
+
+Benefit:
+
+- Independent deployment: deploy more often and faster. We can also scale each service independently.
+- Modularity: make the application easier to understand deplop and test. Different team can work on different services without having to know the details of other service.
+- Technology diversity:
+
+Drawback:
+
+- Complexity: we need to deal with distributed systems which are more complex than monolithic application. Service communication has a higher latency than in process calls in monolithic application
+- Data consistency: maintain data consistency across services is challenging. some operations may require transactions that span multiple services.
+- testing: need to mock other service, integration between services, e2e
+- deploy complexity: we need to deploy mutiple services
+
+## Monoliths
+
+When working in a monolithic architecture, With a single application that contains all of our business logic
+
+monolithic applications are usually divided into modules . All these modules are deployed together as a single unit. The applications are usually deployed onto a single server And all the modules share the same memory and CPU
+
+The modules communicate with each other using in process calls, Function calls method calls Etc. That's why we can easily share data between modules And we can also use transactions that span multiple modules
+
+Also you can easily debug monolithic applications As we have a single process. And we can easily trace the execution
+
+```sh
+nest new virtual-facility
+nest g app workflows-service
+nest g resource workflows
+nest g resource buildings
+```
+
+## database per service pattern
+
+Each service Has its own dedicated database that cannot be directly accessed by any other services
+
+This pattern is usually used when We want to achieve a high level of isolation between services. It's also very useful if we want to use different database Technologies for different services
+
+### Private tables per service
+
+This means that each service Owns a set of tables that must only be accessed by that service. Other Services cannot access these tables directly
+
+### Schema per service
+
+Each service has a database schema that private to that service 
+
+### database server per service
+
+Each service has its own dedicated database server
+
+This approach requires much more resources but it also provides a higher level of isolation
