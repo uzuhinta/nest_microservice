@@ -6,3 +6,8 @@ content-type: application/json
 {
   "name": "Building 1"
 }
+
+
+###
+
+GET http://localhost:3000/health

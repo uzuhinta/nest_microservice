@@ -123,3 +123,15 @@ Each service has a database schema that private to that service
 Each service has its own dedicated database server
 
 This approach requires much more resources but it also provides a higher level of isolation
+
+## Converting from HTTP to NATS
+
+Nats is a lightweight high-performance open source message broker for distributed systems, Cloud native applications and microservices architectures. It provides a simple yet powerful API, easily build distributed systems
+
+The Nats server is written in the go programming language. A client libraries to interact with the server Are available for dozens of major programming languages.
+
+Nats supports both at most once and at least once delivery. It can run anywhere from large servers and Cloud instances Through Edge gateways and even Internet of Things iot devices
+
+![alt text](image.png)
+
+Note that almost every transport strategy supported by nestjs can be used for both request response and event-based communication styles
