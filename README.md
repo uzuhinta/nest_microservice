@@ -135,3 +135,9 @@ Nats supports both at most once and at least once delivery. It can run anywhere 
 ![alt text](image.png)
 
 Note that almost every transport strategy supported by nestjs can be used for both request response and event-based communication styles
+
+## Request-response vs Event-driven
+
+The request response message style is useful when you need to exchange messages between various external services. With this paradigm, You can be certain that a service has actually received the message Without the need to manually implement Message acknowledgment Or ack protocol. the request response Paradigm is not always the best choice. For example, streaming transporters use log base perisistence such as Kafka are optimized for solving a different range of issue.
+
+![alt text](image-1.png)
